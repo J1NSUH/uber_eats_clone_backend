@@ -20,4 +20,5 @@ export class CreateRestaurantDto {
   @Field((type) => String)
   @IsString()
   ownversName: string;
+
 }

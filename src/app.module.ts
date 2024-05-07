@@ -8,6 +8,7 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { validateSchema } from 'graphql';
+import { Restaurant } from './restaurants/entities/restaurant.entity';
 
 @Module({
   imports: [
@@ -38,9 +39,11 @@ import { validateSchema } from 'graphql';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      synchronize: true,
+      //TypeORM이 Entity를 찾고 알아서 migration 해줌
+      synchronize: process.env.NODE_ENV !== 'prod',
       //데이터베이스에서 무슨 일이 일어나는지 콘솔에 표시
       logging: true,
+      entities: [Restaurant],
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

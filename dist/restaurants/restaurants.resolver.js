@@ -16,10 +16,13 @@ exports.RestaurantResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const restaurant_entity_1 = require("./entities/restaurant.entity");
 const create_restaurant_dto_1 = require("./dtos/create-restaurant.dto");
+const restaurants_service_1 = require("./restaurants.service");
 let RestaurantResolver = class RestaurantResolver {
-    restaurants(veganOlny) {
-        console.log(veganOlny);
-        return [];
+    constructor(restaurantService) {
+        this.restaurantService = restaurantService;
+    }
+    restaurants() {
+        return this.restaurantService.getAll();
     }
     createRestaurant(CreateRestaurantDto) {
         console.log(CreateRestaurantDto);
@@ -29,10 +32,9 @@ let RestaurantResolver = class RestaurantResolver {
 exports.RestaurantResolver = RestaurantResolver;
 __decorate([
     (0, graphql_1.Query)((returns) => [restaurant_entity_1.Restaurant]),
-    __param(0, (0, graphql_1.Args)('veganOnly')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Boolean]),
-    __metadata("design:returntype", Array)
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
 ], RestaurantResolver.prototype, "restaurants", null);
 __decorate([
     (0, graphql_1.Mutation)((returns) => Boolean),
@@ -42,6 +44,7 @@ __decorate([
     __metadata("design:returntype", Boolean)
 ], RestaurantResolver.prototype, "createRestaurant", null);
 exports.RestaurantResolver = RestaurantResolver = __decorate([
-    (0, graphql_1.Resolver)((of) => restaurant_entity_1.Restaurant)
+    (0, graphql_1.Resolver)((of) => restaurant_entity_1.Restaurant),
+    __metadata("design:paramtypes", [restaurants_service_1.RestaurantService])
 ], RestaurantResolver);
 //# sourceMappingURL=restaurants.resolver.js.map
