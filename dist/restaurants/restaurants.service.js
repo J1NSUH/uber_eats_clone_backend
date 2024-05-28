@@ -24,6 +24,10 @@ let RestaurantService = class RestaurantService {
     getAll() {
         return this.restaurant.find();
     }
+    createRestaurant(CreateRestaurantDto) {
+        const newRestaurant = this.restaurant.create(CreateRestaurantDto);
+        return this.restaurant.save(newRestaurant);
+    }
 };
 exports.RestaurantService = RestaurantService;
 exports.RestaurantService = RestaurantService = __decorate([

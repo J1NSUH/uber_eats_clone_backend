@@ -5,5 +5,5 @@ export declare class RestaurantResolver {
     private readonly restaurantService;
     constructor(restaurantService: RestaurantService);
     restaurants(): Promise<Restaurant[]>;
-    createRestaurant(CreateRestaurantDto: CreateRestaurantDto): boolean;
+    createRestaurant(CreateRestaurantDto: CreateRestaurantDto): Promise<boolean>;
 }
