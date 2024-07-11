@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Restaurant = void 0;
 const graphql_1 = require("@nestjs/graphql");
+const class_validator_1 = require("class-validator");
 const typeorm_1 = require("typeorm");
 let Restaurant = class Restaurant {
 };
@@ -23,11 +24,14 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)((type) => String),
     (0, typeorm_1.Column)(),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(5),
     __metadata("design:type", String)
 ], Restaurant.prototype, "name", void 0);
 __decorate([
     (0, graphql_1.Field)((type) => Boolean),
     (0, typeorm_1.Column)(),
+    (0, class_validator_1.IsBoolean)(),
     __metadata("design:type", Boolean)
 ], Restaurant.prototype, "isVegan", void 0);
 __decorate([
@@ -46,6 +50,7 @@ __decorate([
     __metadata("design:type", String)
 ], Restaurant.prototype, "categoryName", void 0);
 exports.Restaurant = Restaurant = __decorate([
+    (0, graphql_1.InputType)({ isAbstract: true }),
     (0, graphql_1.ObjectType)(),
     (0, typeorm_1.Entity)()
 ], Restaurant);

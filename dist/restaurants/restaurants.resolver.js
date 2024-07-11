@@ -44,7 +44,7 @@ __decorate([
 ], RestaurantResolver.prototype, "restaurants", null);
 __decorate([
     (0, graphql_1.Mutation)((returns) => Boolean),
-    __param(0, (0, graphql_1.Args)()),
+    __param(0, (0, graphql_1.Args)('input')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_restaurant_dto_1.CreateRestaurantDto]),
     __metadata("design:returntype", Promise)

@@ -1,6 +1,5 @@
-export declare class CreateRestaurantDto {
-    name: string;
-    isVegan: boolean;
-    address: string;
-    ownversName: string;
+import { Restaurant } from '../entities/restaurant.entity';
+declare const CreateRestaurantDto_base: import("@nestjs/common").Type<Omit<Restaurant, "id">>;
+export declare class CreateRestaurantDto extends CreateRestaurantDto_base {
 }
+export {};
