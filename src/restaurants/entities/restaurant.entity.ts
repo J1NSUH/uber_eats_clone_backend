@@ -1,5 +1,5 @@
 import { Field, InputType, Int, ObjectType } from '@nestjs/graphql';
-import { IsBoolean, IsString, Length, isString } from 'class-validator';
+import { IsBoolean, IsNumber, IsString, Length } from 'class-validator';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 //inputype이 스키마에 포함되지 않길 원함
@@ -10,6 +10,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class Restaurant {
   @PrimaryGeneratedColumn()
   @Field((type) => Number)
+  @IsNumber()
   id: number;
 
   @Field((type) => String)
@@ -25,13 +26,16 @@ export class Restaurant {
 
   @Field((type) => String)
   @Column()
+  @IsString()
   address: string;
 
   @Field((type) => String)
   @Column()
+  @IsString()
   ownerName: string;
 
   @Field((type) => String)
   @Column()
+  @IsString()
   categoryName: string;
 }

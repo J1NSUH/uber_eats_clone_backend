@@ -19,6 +19,7 @@ exports.Restaurant = Restaurant;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     (0, graphql_1.Field)((type) => Number),
+    (0, class_validator_1.IsNumber)(),
     __metadata("design:type", Number)
 ], Restaurant.prototype, "id", void 0);
 __decorate([
@@ -37,16 +38,19 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)((type) => String),
     (0, typeorm_1.Column)(),
+    (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], Restaurant.prototype, "address", void 0);
 __decorate([
     (0, graphql_1.Field)((type) => String),
     (0, typeorm_1.Column)(),
+    (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], Restaurant.prototype, "ownerName", void 0);
 __decorate([
     (0, graphql_1.Field)((type) => String),
     (0, typeorm_1.Column)(),
+    (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], Restaurant.prototype, "categoryName", void 0);
 exports.Restaurant = Restaurant = __decorate([
