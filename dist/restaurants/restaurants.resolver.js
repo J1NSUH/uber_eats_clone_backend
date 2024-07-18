@@ -25,6 +25,7 @@ let RestaurantResolver = class RestaurantResolver {
         return this.restaurantService.getAll();
     }
     async createRestaurant(CreateRestaurantDto) {
+        console.log(CreateRestaurantDto);
         try {
             await this.restaurantService.createRestaurant(CreateRestaurantDto);
             return true;

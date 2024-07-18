@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateRestaurantDto = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const restaurant_entity_1 = require("../entities/restaurant.entity");
-let CreateRestaurantDto = class CreateRestaurantDto extends (0, graphql_1.OmitType)(restaurant_entity_1.Restaurant, ['id', 'ownerName', 'categoryName']) {
+let CreateRestaurantDto = class CreateRestaurantDto extends (0, graphql_1.OmitType)(restaurant_entity_1.Restaurant, ['id']) {
 };
 exports.CreateRestaurantDto = CreateRestaurantDto;
 exports.CreateRestaurantDto = CreateRestaurantDto = __decorate([

@@ -30,29 +30,18 @@ __decorate([
     __metadata("design:type", String)
 ], Restaurant.prototype, "name", void 0);
 __decorate([
-    (0, graphql_1.Field)((type) => Boolean),
-    (0, typeorm_1.Column)(),
+    (0, graphql_1.Field)((type) => Boolean, { nullable: true, defaultValue: true }),
+    (0, typeorm_1.Column)({ default: true }),
     (0, class_validator_1.IsBoolean)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Boolean)
 ], Restaurant.prototype, "isVegan", void 0);
 __decorate([
-    (0, graphql_1.Field)((type) => String),
+    (0, graphql_1.Field)((type) => String, { defaultValue: 'no address here' }),
     (0, typeorm_1.Column)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], Restaurant.prototype, "address", void 0);
-__decorate([
-    (0, graphql_1.Field)((type) => String),
-    (0, typeorm_1.Column)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], Restaurant.prototype, "ownerName", void 0);
-__decorate([
-    (0, graphql_1.Field)((type) => String),
-    (0, typeorm_1.Column)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], Restaurant.prototype, "categoryName", void 0);
 exports.Restaurant = Restaurant = __decorate([
     (0, graphql_1.InputType)({ isAbstract: true }),
     (0, graphql_1.ObjectType)(),
