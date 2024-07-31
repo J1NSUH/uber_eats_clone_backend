@@ -3,6 +3,11 @@ import { Restaurant } from './entities/restaurant.entity';
 import { CreateRestaurantDto } from './dtos/create-restaurant.dto';
 import { RestaurantService } from './restaurants.service';
 import { last } from 'rxjs';
+import { number } from 'joi';
+import {
+  UpdateRestaurantDto,
+  UpdateRestaurantInputType,
+} from './dtos/update-restaurant.dto';
 
 @Resolver((of) => Restaurant)
 export class RestaurantResolver {
@@ -23,5 +28,11 @@ export class RestaurantResolver {
       console.log(e);
       return false;
     }
+  }
+  @Mutation((returns) => Boolean)
+  async updateRestarant(
+    @Args('input') UpdateRestaurantDto: UpdateRestaurantDto,
+  ) {
+    return true;
   }
 }

@@ -17,6 +17,7 @@ const graphql_1 = require("@nestjs/graphql");
 const restaurant_entity_1 = require("./entities/restaurant.entity");
 const create_restaurant_dto_1 = require("./dtos/create-restaurant.dto");
 const restaurants_service_1 = require("./restaurants.service");
+const update_restaurant_dto_1 = require("./dtos/update-restaurant.dto");
 let RestaurantResolver = class RestaurantResolver {
     constructor(restaurantService) {
         this.restaurantService = restaurantService;
@@ -35,6 +36,9 @@ let RestaurantResolver = class RestaurantResolver {
             return false;
         }
     }
+    async updateRestarant(UpdateRestaurantDto) {
+        return true;
+    }
 };
 exports.RestaurantResolver = RestaurantResolver;
 __decorate([
@@ -50,6 +54,13 @@ __decorate([
     __metadata("design:paramtypes", [create_restaurant_dto_1.CreateRestaurantDto]),
     __metadata("design:returntype", Promise)
 ], RestaurantResolver.prototype, "createRestaurant", null);
+__decorate([
+    (0, graphql_1.Mutation)((returns) => Boolean),
+    __param(0, (0, graphql_1.Args)('input')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [update_restaurant_dto_1.UpdateRestaurantDto]),
+    __metadata("design:returntype", Promise)
+], RestaurantResolver.prototype, "updateRestarant", null);
 exports.RestaurantResolver = RestaurantResolver = __decorate([
     (0, graphql_1.Resolver)((of) => restaurant_entity_1.Restaurant),
     __metadata("design:paramtypes", [restaurants_service_1.RestaurantService])
