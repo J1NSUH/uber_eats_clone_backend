@@ -37,7 +37,14 @@ let RestaurantResolver = class RestaurantResolver {
         }
     }
     async updateRestarant(UpdateRestaurantDto) {
-        return true;
+        try {
+            await this.restaurantService.updateRestaurant(UpdateRestaurantDto);
+            return true;
+        }
+        catch (e) {
+            console.log(e);
+            return false;
+        }
     }
 };
 exports.RestaurantResolver = RestaurantResolver;

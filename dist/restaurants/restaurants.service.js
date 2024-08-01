@@ -28,6 +28,9 @@ let RestaurantService = class RestaurantService {
         const newRestaurant = this.restaurant.create(CreateRestaurantDto);
         return this.restaurant.save(newRestaurant);
     }
+    updateRestaurant({ id, data }) {
+        this.restaurant.update(id, { ...data });
+    }
 };
 exports.RestaurantService = RestaurantService;
 exports.RestaurantService = RestaurantService = __decorate([

@@ -9,13 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateRestaurantDto = exports.UpdateRestaurantInputType = void 0;
+exports.UpdateRestaurantDto = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const create_restaurant_dto_1 = require("./create-restaurant.dto");
 let UpdateRestaurantInputType = class UpdateRestaurantInputType extends (0, graphql_1.PartialType)(create_restaurant_dto_1.CreateRestaurantDto) {
 };
-exports.UpdateRestaurantInputType = UpdateRestaurantInputType;
-exports.UpdateRestaurantInputType = UpdateRestaurantInputType = __decorate([
+UpdateRestaurantInputType = __decorate([
     (0, graphql_1.InputType)()
 ], UpdateRestaurantInputType);
 let UpdateRestaurantDto = class UpdateRestaurantDto {
