@@ -3,12 +3,10 @@ import { Module } from '@nestjs/common';
 //Typescript나 NestJS로 되어 있지 않은 패키지를 import하는 방법
 import * as Joi from 'joi';
 import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
-import { RestaurantsModule } from './restaurants/restaurants.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { validateSchema } from 'graphql';
-import { Restaurant } from './restaurants/entities/restaurant.entity';
+import { UsersModule } from './users/users.module';
+import { User } from './users/entities/user.entity';
 
 @Module({
   imports: [
@@ -44,13 +42,14 @@ import { Restaurant } from './restaurants/entities/restaurant.entity';
       //데이터베이스에서 무슨 일이 일어나는지 콘솔에 표시
       logging: true,
       // [Restaurant]이 DB가 됨
-      entities: [Restaurant],
+      entities: [User],
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true /*join(process.cwd(), 'src/schema.gql')*/,
     }),
-    RestaurantsModule,
+
+    UsersModule,
   ],
   controllers: [],
   providers: [],
