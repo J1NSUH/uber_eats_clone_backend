@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
+const graphql_1 = require("@nestjs/graphql");
 const core_entity_1 = require("../../common/entities/core.entity");
 const typeorm_1 = require("typeorm");
 let User = class User extends core_entity_1.CoreEntity {
@@ -17,17 +18,22 @@ let User = class User extends core_entity_1.CoreEntity {
 exports.User = User;
 __decorate([
     (0, typeorm_1.Column)(),
+    (0, graphql_1.Field)((type) => String),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
+    (0, graphql_1.Field)((type) => String),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
+    (0, graphql_1.Field)((type) => String),
     __metadata("design:type", String)
 ], User.prototype, "role", void 0);
 exports.User = User = __decorate([
+    (0, graphql_1.InputType)({ isAbstract: true }),
+    (0, graphql_1.ObjectType)(),
     (0, typeorm_1.Entity)()
 ], User);
 //# sourceMappingURL=user.entity.js.map
