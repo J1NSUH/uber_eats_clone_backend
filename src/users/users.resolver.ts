@@ -5,6 +5,7 @@ import {
   CreateAccountInput,
   CreateAccoutOutput,
 } from './dtos/create-account.dto';
+import { boolean, string } from 'joi';
 
 @Resolver((of) => User)
 export class UsersResolver {
@@ -16,5 +17,25 @@ export class UsersResolver {
   }
 
   @Mutation((returns) => CreateAccoutOutput)
-  createAccount(@Args('input') CreateAccountInput: CreateAccountInput) {}
+  async createAccount(
+    @Args('input') CreateAccountInput: CreateAccountInput,
+  ): Promise<CreateAccoutOutput> {
+    try {
+      const error = await this.usersService.createAccount(CreateAccountInput);
+      if (error) {
+        return {
+          ok: false,
+          error,
+        };
+      }
+      return {
+        ok: true,
+      };
+    } catch (error) {
+      return {
+        error: error,
+        ok: false,
+      };
+    }
+  }
 }

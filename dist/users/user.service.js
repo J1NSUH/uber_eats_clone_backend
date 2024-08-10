@@ -21,6 +21,18 @@ let UsersService = class UsersService {
     constructor(users) {
         this.users = users;
     }
+    async createAccount({ email, password, role, }) {
+        try {
+            const exists = await this.users.findOne({ where: { email } });
+            if (exists) {
+                return 'There is a user with that email already';
+            }
+            await this.users.save(this.users.create({ email, password, role }));
+        }
+        catch (e) {
+            return "Couldn't create account";
+        }
+    }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([
