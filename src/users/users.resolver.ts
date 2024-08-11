@@ -5,7 +5,6 @@ import {
   CreateAccountInput,
   CreateAccoutOutput,
 } from './dtos/create-account.dto';
-import { boolean, string } from 'joi';
 
 @Resolver((of) => User)
 export class UsersResolver {
@@ -21,13 +20,8 @@ export class UsersResolver {
     @Args('input') CreateAccountInput: CreateAccountInput,
   ): Promise<CreateAccoutOutput> {
     try {
-      const error = await this.usersService.createAccount(CreateAccountInput);
-      if (error) {
-        return {
-          ok: false,
-          error,
-        };
-      }
+      const [ok, error] =
+        await this.usersService.createAccount(CreateAccountInput);
       return {
         ok: true,
       };
