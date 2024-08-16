@@ -15,6 +15,7 @@ const core_entity_1 = require("../../common/entities/core.entity");
 const typeorm_1 = require("typeorm");
 const bcrypt = require("bcrypt");
 const class_validator_1 = require("class-validator");
+const common_1 = require("@nestjs/common");
 var UserRole;
 (function (UserRole) {
     UserRole[UserRole["Owner"] = 0] = "Owner";
@@ -25,6 +26,16 @@ var UserRole;
 let User = class User extends core_entity_1.CoreEntity {
     async hashPassword() {
         this.password = await bcrypt.hash(this.password, 10);
+    }
+    async checkPassword(aPassword) {
+        try {
+            const ok = await bcrypt.compare(aPassword, this.password);
+            return ok;
+        }
+        catch (e) {
+            console.log(e);
+            throw new common_1.InternalServerErrorException();
+        }
     }
 };
 exports.User = User;

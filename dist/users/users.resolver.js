@@ -27,10 +27,7 @@ let UsersResolver = class UsersResolver {
     }
     async createAccount(CreateAccountInput) {
         try {
-            const [ok, error] = await this.usersService.createAccount(CreateAccountInput);
-            return {
-                ok: true,
-            };
+            return this.usersService.createAccount(CreateAccountInput);
         }
         catch (error) {
             return {
@@ -39,7 +36,17 @@ let UsersResolver = class UsersResolver {
             };
         }
     }
-    async login(loginInput) { }
+    async login(loginInput) {
+        try {
+            return this.usersService.login(loginInput);
+        }
+        catch (error) {
+            return {
+                ok: false,
+                error,
+            };
+        }
+    }
 };
 exports.UsersResolver = UsersResolver;
 __decorate([

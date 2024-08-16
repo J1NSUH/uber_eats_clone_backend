@@ -4,6 +4,6 @@ declare const LoginInput_base: import("@nestjs/common").Type<Pick<User, "email" 
 export declare class LoginInput extends LoginInput_base {
 }
 export declare class LoginOutput extends MutationOutput {
-    token: string;
+    token?: string;
 }
 export {};

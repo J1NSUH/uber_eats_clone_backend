@@ -23,7 +23,7 @@ let LoginOutput = class LoginOutput extends output_dto_1.MutationOutput {
 };
 exports.LoginOutput = LoginOutput;
 __decorate([
-    (0, graphql_1.Field)((type) => String),
+    (0, graphql_1.Field)((type) => String, { nullable: true }),
     __metadata("design:type", String)
 ], LoginOutput.prototype, "token", void 0);
 exports.LoginOutput = LoginOutput = __decorate([
