@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const user_entity_1 = require("./entities/user.entity");
-const user_service_1 = require("./user.service");
+const users_service_1 = require("./users.service");
 const create_account_dto_1 = require("./dtos/create-account.dto");
 const login_dto_1 = require("./dtos/login.dto");
 let UsersResolver = class UsersResolver {
@@ -71,6 +71,6 @@ __decorate([
 ], UsersResolver.prototype, "login", null);
 exports.UsersResolver = UsersResolver = __decorate([
     (0, graphql_1.Resolver)((of) => user_entity_1.User),
-    __metadata("design:paramtypes", [user_service_1.UsersService])
+    __metadata("design:paramtypes", [users_service_1.UsersService])
 ], UsersResolver);
 //# sourceMappingURL=users.resolver.js.map

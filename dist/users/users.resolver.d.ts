@@ -1,4 +1,4 @@
-import { UsersService } from './user.service';
+import { UsersService } from './users.service';
 import { CreateAccountInput, CreateAccoutOutput } from './dtos/create-account.dto';
 import { LoginInput, LoginOutput } from './dtos/login.dto';
 export declare class UsersResolver {
