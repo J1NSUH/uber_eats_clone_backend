@@ -56,7 +56,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersResolver.prototype, "hi", null);
 __decorate([
-    (0, graphql_1.Mutation)((returns) => create_account_dto_1.CreateAccoutOutput),
+    (0, graphql_1.Mutation)((returns) => create_account_dto_1.CreateAccountOutput),
     __param(0, (0, graphql_1.Args)('input')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_account_dto_1.CreateAccountInput]),

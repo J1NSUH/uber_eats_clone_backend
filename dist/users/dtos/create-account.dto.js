@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateAccoutOutput = exports.CreateAccountInput = void 0;
+exports.CreateAccountOutput = exports.CreateAccountInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const user_entity_1 = require("../entities/user.entity");
 const output_dto_1 = require("../../common/dtos/output.dto");
@@ -20,10 +20,10 @@ exports.CreateAccountInput = CreateAccountInput;
 exports.CreateAccountInput = CreateAccountInput = __decorate([
     (0, graphql_1.InputType)()
 ], CreateAccountInput);
-let CreateAccoutOutput = class CreateAccoutOutput extends output_dto_1.MutationOutput {
+let CreateAccountOutput = class CreateAccountOutput extends output_dto_1.MutationOutput {
 };
-exports.CreateAccoutOutput = CreateAccoutOutput;
-exports.CreateAccoutOutput = CreateAccoutOutput = __decorate([
+exports.CreateAccountOutput = CreateAccountOutput;
+exports.CreateAccountOutput = CreateAccountOutput = __decorate([
     (0, graphql_1.ObjectType)()
-], CreateAccoutOutput);
+], CreateAccountOutput);
 //# sourceMappingURL=create-account.dto.js.map

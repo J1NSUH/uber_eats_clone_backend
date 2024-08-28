@@ -6,7 +6,6 @@ import { Injectable } from '@nestjs/common';
 import { CreateAccountInput } from './dtos/create-account.dto';
 import { LoginInput, LoginOutput } from './dtos/login.dto';
 import { MutationOutput } from 'src/common/dtos/output.dto';
-import { error } from 'console';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
@@ -53,10 +52,11 @@ export class UsersService {
           error: 'wrong password',
         };
       }
+
       const token = jwt.sign({ id: user.id }, this.config.get('SECRET_KEY'));
       return {
         ok: true,
-        token: 'lalalalalalaa',
+        token,
       };
     } catch (error: any) {
       return { ok: false, error };
