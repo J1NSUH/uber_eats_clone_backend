@@ -8,6 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { JwtModule } from './jwt/jwt.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -50,10 +51,9 @@ import { JwtModule } from './jwt/jwt.module';
       driver: ApolloDriver,
       autoSchemaFile: true /*join(process.cwd(), 'src/schema.gql')*/,
     }),
-
+    JwtModule.forRoot(),
     UsersModule,
-
-    JwtModule,
+    CommonModule,
   ],
   controllers: [],
   providers: [],
