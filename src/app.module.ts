@@ -9,6 +9,7 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { JwtModule } from './jwt/jwt.module';
 import { CommonModule } from './common/common.module';
+import { createPrivateKey } from 'crypto';
 
 @Module({
   imports: [
@@ -28,7 +29,7 @@ import { CommonModule } from './common/common.module';
         DB_USERNAME: Joi.string().required(),
         DB_PASSWORD: Joi.string().required(),
         DB_NAME: Joi.string().required(),
-        SECRET_KEY: Joi.string().required(),
+        PRIVATE_KEY: Joi.string().required(),
       }),
     }),
     TypeOrmModule.forRoot({
@@ -51,7 +52,9 @@ import { CommonModule } from './common/common.module';
       driver: ApolloDriver,
       autoSchemaFile: true /*join(process.cwd(), 'src/schema.gql')*/,
     }),
-    JwtModule.forRoot(),
+    JwtModule.forRoot({
+      createPrivateKey: process.env.PRIVATE_KEY,
+    }),
     UsersModule,
     CommonModule,
   ],
