@@ -9,7 +9,6 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { JwtModule } from './jwt/jwt.module';
 import { CommonModule } from './common/common.module';
-import { createPrivateKey } from 'crypto';
 
 @Module({
   imports: [
@@ -48,12 +47,10 @@ import { createPrivateKey } from 'crypto';
       // [Restaurant]이 DB가 됨
       entities: [User],
     }),
+    JwtModule.forRoot({ privateKey: process.env.PRIVATE_KEY }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true /*join(process.cwd(), 'src/schema.gql')*/,
-    }),
-    JwtModule.forRoot({
-      createPrivateKey: process.env.PRIVATE_KEY,
     }),
     UsersModule,
     CommonModule,

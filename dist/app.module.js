@@ -34,7 +34,7 @@ exports.AppModule = AppModule = __decorate([
                     DB_USERNAME: Joi.string().required(),
                     DB_PASSWORD: Joi.string().required(),
                     DB_NAME: Joi.string().required(),
-                    SECRET_KEY: Joi.string().required(),
+                    PRIVATE_KEY: Joi.string().required(),
                 }),
             }),
             typeorm_1.TypeOrmModule.forRoot({
@@ -48,11 +48,11 @@ exports.AppModule = AppModule = __decorate([
                 logging: true,
                 entities: [user_entity_1.User],
             }),
+            jwt_module_1.JwtModule.forRoot({ privateKey: process.env.PRIVATE_KEY }),
             graphql_1.GraphQLModule.forRoot({
                 driver: apollo_1.ApolloDriver,
                 autoSchemaFile: true,
             }),
-            jwt_module_1.JwtModule.forRoot(),
             users_module_1.UsersModule,
             common_module_1.CommonModule,
         ],

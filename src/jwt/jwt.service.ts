@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { JwtModuleOptions } from './jwt.interfaces';
+import * as jwt from 'jsonwebtoken';
 import { CONFIG_OPTIONS } from './jwt.constants';
 
 @Injectable()
@@ -9,7 +10,7 @@ export class JwtService {
   ) {
     console.log(options);
   }
-  hello() {
-    console.log('hello');
+  sign(userId: number): string {
+    return jwt.sign({ id: userId }, this.options.privateKey);
   }
 }
