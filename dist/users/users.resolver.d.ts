@@ -7,4 +7,5 @@ export declare class UsersResolver {
     hi(): boolean;
     createAccount(CreateAccountInput: CreateAccountInput): Promise<CreateAccountOutput>;
     login(loginInput: LoginInput): Promise<LoginOutput>;
+    me(): void;
 }
