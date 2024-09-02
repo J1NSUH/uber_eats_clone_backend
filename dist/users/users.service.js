@@ -62,6 +62,9 @@ let UsersService = class UsersService {
             return { ok: false, error };
         }
     }
+    async findById(id) {
+        return this.users.findOne({ where: { id } });
+    }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([

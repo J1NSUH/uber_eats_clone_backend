@@ -10,4 +10,5 @@ export declare class UsersService {
     constructor(users: Repository<User>, jwtService: JwtService);
     createAccount({ email, password, role, }: CreateAccountInput): Promise<MutationOutput>;
     login({ email, password }: LoginInput): Promise<LoginOutput>;
+    findById(id: number): Promise<User>;
 }

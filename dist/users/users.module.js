@@ -20,6 +20,7 @@ exports.UsersModule = UsersModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]), jwt_module_1.JwtModule],
         providers: [users_resolver_1.UsersResolver, users_service_1.UsersService],
+        exports: [users_service_1.UsersService],
     })
 ], UsersModule);
 //# sourceMappingURL=users.module.js.map
