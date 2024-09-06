@@ -59,6 +59,7 @@ exports.AppModule = AppModule = __decorate([
             graphql_1.GraphQLModule.forRoot({
                 driver: apollo_1.ApolloDriver,
                 autoSchemaFile: true,
+                context: ({ req }) => ({ user: req['user'] }),
             }),
             users_module_1.UsersModule,
             common_module_1.CommonModule,

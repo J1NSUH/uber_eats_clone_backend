@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 //Typescript나 NestJS로 되어 있지 않은 패키지를 import하는 방법
 import * as Joi from 'joi';
-import { GraphQLModule } from '@nestjs/graphql';
+import { Context, GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
@@ -57,6 +57,7 @@ import { JwtMiddleware } from './jwt/jwt.middleware';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true /*join(process.cwd(), 'src/schema.gql')*/,
+      context: ({ req }) => ({ user: req['user'] }),
     }),
     UsersModule,
     CommonModule,

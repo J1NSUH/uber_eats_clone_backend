@@ -19,7 +19,6 @@ const jwt_constants_1 = require("./jwt.constants");
 let JwtService = class JwtService {
     constructor(options) {
         this.options = options;
-        console.log(options);
     }
     sign(userId) {
         return jwt.sign({ id: userId }, this.options.privateKey);
